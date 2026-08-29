@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Bienvenido a JPC TECH Connect</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .contenedor {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .tarjeta {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+        }
+
+        .logo {
+            max-width: 180px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .beneficios {
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .beneficio {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f5f7fa;
+            border-radius: 10px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .boton:hover {
+            opacity: 0.9;
+        }
+
+        .pie {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #777;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="tarjeta">
+
+        <!-- Si tu logo tiene otro nombre, luego lo cambiamos -->
+        <img
+            src="{{ url_for('static', filename='logo.png') }}"
+            alt="JPC TECH Center"
+            class="logo"
+        >
+<h1>
+    🎉 ¡Hola, {{ cliente.nombre }}!
+</h1>
+
+<p class="subtitulo">
+    Bienvenido a JPC TECH Connect.
+</p>
+
+<p>
+    Tu registro se realizó correctamente.
+</p>
+        <p>
+            Ahora formas parte de nuestra comunidad de clientes
+            y podrás recibir orientación y beneficios tecnológicos.
+        </p>
+
+        <div class="beneficios">
+
+            <div class="beneficio">
+                💻 <strong>Asesoría tecnológica</strong><br>
+                Orientación para resolver tus dudas.
+            </div>
+
+            <div class="beneficio">
+                🛠️ <strong>Cuidado de tu PC</strong><br>
+                Recomendaciones para mantener tu equipo.
+            </div>
+
+        <div class="beneficios">
+
+    <h2>🎁 Tus beneficios JPC TECH Connect</h2>
+
+    <div class="beneficio">
+        💻 <strong>Asesoría tecnológica</strong><br>
+        Orientación para resolver tus dudas tecnológicas.
+    </div>
+
+    <div class="beneficio">
+        🛠️ <strong>Cuidado de tu equipo</strong><br>
+        Recomendaciones para mantener tu PC, laptop o impresora.
+    </div>
+
+    <div class="beneficio">
+        ⚡ <strong>Optimización</strong><br>
+        Consejos para mejorar el rendimiento de tu equipo.
+    </div>
+
+    <div class="beneficio">
+        🛒 <strong>Orientación antes de comprar</strong><br>
+        Consulta antes de adquirir tecnología.
+    </div>
+
+    <div class="beneficio">
+        🎟️ <strong>Promociones especiales</strong><br>
+        Acceso a campañas y beneficios para clientes registrados.
+    </div>
+
+</div>
+
+<a
+    href="/beneficios"
+    class="boton"
+>
+    🎁 VER MIS BENEFICIOS
+</a>
+<a
+    href="{{ url_for('perfil', cliente_id=cliente.id) }}"
+    class="boton"
+>
+    👤 MI PERFIL
+</a>
+            <div class="beneficio">
+                🛒 <strong>Orientación antes de comprar</strong><br>
+                Te ayudamos a elegir tecnología adecuada.
+            </div>
+
+            <div class="beneficio">
+                🎁 <strong>Promociones especiales</strong><br>
+                Beneficios para clientes registrados.
+            </div>
+
+        </div>
+
+        <a
+            href="/"
+            class="boton"
+        >
+            🏠 Volver a JPC TECH
+        </a>
+
+        <div class="pie">
+            JPC TECH Center<br>
+            Centro de Soluciones Tecnológicas
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

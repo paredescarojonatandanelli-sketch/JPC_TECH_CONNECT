@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Solicitar Asesoría - JPC TECH Connect</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .contenedor {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .tarjeta {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+        }
+
+        .cabecera {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            color: #666;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .boton {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            margin-top: 25px;
+            background: #0d6efd;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .boton-secundario {
+            display: block;
+            padding: 14px;
+            margin-top: 12px;
+            background: #6c757d;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .pie {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #777;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="tarjeta">
+
+        <div class="cabecera">
+
+            <h1>📲 Solicitar Asesoría</h1>
+
+            <p class="subtitulo">
+                Cuéntanos qué necesitas y JPC TECH se pondrá en contacto contigo.
+            </p>
+
+        </div>
+
+        <form method="POST">
+
+            <label for="tipo">
+                ¿Qué necesitas?
+            </label>
+
+            <select
+                name="tipo"
+                id="tipo"
+                required
+            >
+
+                <option value="">
+                    Selecciona una opción
+                </option>
+
+                <option value="Mantenimiento">
+                    🛠️ Mantenimiento
+                </option>
+
+                <option value="Diagnóstico">
+                    🔍 Diagnóstico
+                </option>
+
+                <option value="Reparación">
+                    🔧 Reparación
+                </option>
+
+                <option value="Optimización">
+                    ⚡ Optimización
+                </option>
+
+                <option value="Compra de equipo">
+                    💻 Compra de equipo
+                </option>
+
+                <option value="Impresoras">
+                    🖨️ Impresoras
+                </option>
+
+                <option value="Otro">
+                    📌 Otro
+                </option>
+
+            </select>
+
+            <label for="descripcion">
+                Describe lo que necesitas
+            </label>
+
+            <textarea
+                name="descripcion"
+                id="descripcion"
+                placeholder="Ejemplo: Mi PC está lenta y quiero saber qué puedo hacer."
+                required
+            ></textarea>
+
+            <button
+                type="submit"
+                class="boton"
+            >
+                📲 ENVIAR SOLICITUD
+            </button>
+
+        </form>
+
+        <a
+            href="/"
+            class="boton-secundario"
+        >
+            🏠 Volver al inicio
+        </a>
+
+        <div class="pie">
+
+            JPC TECH Center<br>
+            Centro de Soluciones Tecnológicas
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

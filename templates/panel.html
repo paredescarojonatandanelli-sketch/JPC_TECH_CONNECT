@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JPC TECH CENTER - Administración</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .encabezado {
+            background: #1261d6;
+            color: white;
+            padding: 18px 20px;
+        }
+
+        .encabezado-contenido {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .titulo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .salir {
+            color: white;
+            text-decoration: none;
+            background: #c62828;
+            padding: 10px 15px;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .tarjeta-estadistica {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .tarjeta-estadistica h3 {
+            margin: 0 0 10px 0;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .numero {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1261d6;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .tarjeta h2 {
+            margin-top: 0;
+        }
+
+        .tabla-contenedor {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 13px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f1f6fc;
+        }
+
+        a {
+            color: #1261d6;
+        }
+
+        .boton-buscar {
+            padding: 12px 20px;
+            background: #1261d6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .boton-servicio {
+            padding: 8px 12px;
+            background: #1261d6;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .buscador {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 800px) {
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .encabezado-contenido {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="encabezado">
+
+    <div class="encabezado-contenido">
+
+        <div class="titulo">
+            JPC TECH CENTER — Administración
+        </div>
+
+        <a
+            href="{{ url_for('logout') }}"
+            class="salir"
+        >
+            Cerrar sesión
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="contenedor">
+
+
+    <!-- ========================= -->
+    <!-- DASHBOARD -->
+    <!-- ========================= -->
+
+    <div class="tarjeta">
+
+    <h2>
+        📊 Resumen de JPC TECH Connect
+    </h2>
+
+    <div style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    ">
+
+        <div style="
+            background: #f1f6fc;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        ">
+            <div style="font-size: 28px;">
+                👥
+            </div>
+
+            <strong>Clientes</strong>
+
+            <div class="estadistica">
+                {{ clientes|length }}
+            </div>
+        </div>
+
+
+        <div style="
+            background: #f1f6fc;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        ">
+            <div style="font-size: 28px;">
+                📲
+            </div>
+
+            <strong>Solicitudes</strong>
+
+            <div class="estadistica">
+                {{ total_solicitudes }}
+            </div>
+        </div>
+
+
+        <div style="
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        ">
+            <div style="font-size: 28px;">
+                🟡
+            </div>
+
+            <strong>Nuevas</strong>
+
+            <div class="estadistica">
+                {{ nuevas }}
+            </div>
+        </div>
+
+
+        <div style="
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        ">
+            <div style="font-size: 28px;">
+                🔵
+            </div>
+
+            <strong>En revisión</strong>
+
+            <div class="estadistica">
+                {{ en_revision }}
+            </div>
+        </div>
+
+
+        <div style="
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        ">
+            <div style="font-size: 28px;">
+                🟣
+            </div>
+
+            <strong>Contactadas</strong>
+
+            <div class="estadistica">
+                {{ contactadas }}
+            </div>
+        </div>
+
+
+        <div style="
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        ">
+            <div style="font-size: 28px;">
+                🟢
+            </div>
+
+            <strong>Atendidas</strong>
+
+            <div class="estadistica">
+                {{ atendidas }}
+            </div>
+        </div>
+
+
+        <div style="
+            background: #eeeeee;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        ">
+            <div style="font-size: 28px;">
+                ⚫
+            </div>
+
+            <strong>Cerradas</strong>
+
+            <div class="estadistica">
+                {{ cerradas }}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+        <div class="tarjeta-estadistica">
+
+            <h3>
+                📋 Total de solicitudes
+            </h3>
+
+            <div class="numero">
+                {{ total_solicitudes }}
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta-estadistica">
+
+            <h3>
+                🟡 Solicitudes nuevas
+            </h3>
+
+            <div class="numero">
+                {{ nuevas }}
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta-estadistica">
+
+            <h3>
+                🔵 En revisión
+            </h3>
+
+            <div class="numero">
+                {{ en_revision }}
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta-estadistica">
+
+            <h3>
+                🟣 Contactados
+            </h3>
+
+            <div class="numero">
+                {{ contactadas }}
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta-estadistica">
+
+            <h3>
+                🟢 Atendidas
+            </h3>
+
+            <div class="numero">
+                {{ atendidas }}
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- SOLICITUDES -->
+    <!-- ========================= -->
+
+    <div class="tarjeta">
+
+        <h2>
+            📲 Solicitudes de Asesoría
+        </h2>
+
+
+        {% if solicitudes %}
+
+        <div class="tabla-contenedor">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Fecha</th>
+                        <th>Acción</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                {% for solicitud in solicitudes %}
+
+                <tr>
+
+                    <td>
+                        {{ solicitud.id }}
+                    </td>
+
+
+                    <td>
+
+                        <a
+                            href="{{ url_for(
+                                'cliente_detalle',
+                                cliente_id=solicitud.cliente_id
+                            ) }}"
+                            style="font-weight: bold;"
+                        >
+                            {{ solicitud.cliente.nombre }}
+                        </a>
+
+                    </td>
+
+
+                    <td>
+                        {{ solicitud.tipo }}
+                    </td>
+
+
+                    <td>
+                        {{ solicitud.descripcion }}
+                    </td>
+
+
+                    <td>
+
+                        <form
+                            method="POST"
+                            action="{{ url_for(
+                                'actualizar_estado_solicitud',
+                                solicitud_id=solicitud.id
+                            ) }}"
+                        >
+
+                            <select
+                                name="estado"
+                                onchange="this.form.submit()"
+                                style="
+                                    padding: 8px;
+                                    border-radius: 7px;
+                                    border: 1px solid #ccc;
+                                "
+                            >
+
+                                <option
+                                    value="Nueva"
+                                    {% if solicitud.estado == "Nueva" %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    🟡 Nueva
+                                </option>
+
+
+                                <option
+                                    value="En revisión"
+                                    {% if solicitud.estado == "En revisión" %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    🔵 En revisión
+                                </option>
+
+
+                                <option
+                                    value="Contactado"
+                                    {% if solicitud.estado == "Contactado" %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    🟣 Contactado
+                                </option>
+
+
+                                <option
+                                    value="Atendida"
+                                    {% if solicitud.estado == "Atendida" %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    🟢 Atendida
+                                </option>
+
+
+                                <option
+                                    value="Cerrada"
+                                    {% if solicitud.estado == "Cerrada" %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    ⚫ Cerrada
+                                </option>
+
+                            </select>
+
+                        </form>
+
+                    </td>
+
+
+                    <td>
+                        {{ solicitud.fecha }}
+                    </td>
+
+
+                    <td>
+
+                        {% if solicitud.estado == "Atendida" %}
+
+                        <form
+                            method="POST"
+                            action="{{ url_for(
+                                'registrar_servicio_solicitud',
+                                solicitud_id=solicitud.id
+                            ) }}"
+                            onsubmit="return confirm(
+                                '¿Registrar esta solicitud en el historial del cliente?'
+                            );"
+                        >
+
+                            <button
+                                type="submit"
+                                class="boton-servicio"
+                            >
+                                📋 Registrar servicio
+                            </button>
+
+                        </form>
+
+                        {% else %}
+
+                            -
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        {% else %}
+
+        <p>
+            📋 No hay solicitudes de asesoría.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- CLIENTES -->
+    <!-- ========================= -->
+
+    <div class="tarjeta">
+
+        <h2>
+            👥 Base de clientes
+        </h2>
+
+
+        <form
+            method="GET"
+            action="{{ url_for('panel') }}"
+        >
+
+            <input
+                type="text"
+                name="buscar"
+                value="{{ busqueda }}"
+                class="buscador"
+                placeholder="Buscar por nombre o WhatsApp..."
+            >
+
+
+            <button
+                type="submit"
+                class="boton-buscar"
+            >
+                🔎 BUSCAR
+            </button>
+
+
+            <a
+                href="{{ url_for('panel') }}"
+                style="margin-left: 10px;"
+            >
+                Ver todos
+            </a>
+
+        </form>
+
+
+        <div class="tabla-contenedor">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>WhatsApp</th>
+                        <th>Correo</th>
+                        <th>Equipo</th>
+                        <th>Estado</th>
+                        <th>Necesidad</th>
+                        <th>Fecha</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                {% for cliente in clientes %}
+
+                <tr>
+
+                    <td>
+                        {{ cliente.id }}
+                    </td>
+
+
+                    <td>
+
+                        <a
+                            href="{{ url_for(
+                                'cliente_detalle',
+                                cliente_id=cliente.id
+                            ) }}"
+                            style="font-weight: bold;"
+                        >
+                            {{ cliente.nombre }}
+                        </a>
+
+                    </td>
+
+
+                    <td>
+                        {{ cliente.whatsapp }}
+                    </td>
+
+
+                    <td>
+                        {{ cliente.correo or "-" }}
+                    </td>
+
+
+                    <td>
+                        {{ cliente.equipo or "-" }}
+                    </td>
+
+
+                    <td>
+                        {{ cliente.estado or "-" }}
+                    </td>
+
+
+                    <td>
+                        {{ cliente.necesidad or "-" }}
+                    </td>
+
+
+                    <td>
+                        {{ cliente.fecha_registro }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+</body>
+
+</html>

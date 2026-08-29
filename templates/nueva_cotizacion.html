@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Nueva Cotización | JPC TECH Center
+    </title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        .contenedor {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            color: #07152f;
+            margin-top: 0;
+        }
+
+        .cliente {
+            background: #f1f6fc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .total {
+            margin-top: 20px;
+            padding: 18px;
+            background: #eef5ff;
+            border-radius: 8px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1261d6;
+            text-align: center;
+        }
+
+        .botones {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .boton {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .guardar {
+            background: #1261d6;
+            color: white;
+        }
+
+        .cancelar {
+            background: #777;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="tarjeta">
+
+        <h1>
+            💰 Nueva Cotización
+        </h1>
+
+        <div class="cliente">
+
+            <strong>
+                Cliente:
+            </strong>
+
+            {{ cliente.nombre }}
+
+            <br>
+
+            <strong>
+                WhatsApp:
+            </strong>
+
+            {{ cliente.whatsapp }}
+
+        </div>
+
+
+        <form
+            method="POST"
+        >
+
+            <label>
+                Descripción
+            </label>
+
+            <textarea
+                name="descripcion"
+                placeholder="Ejemplo: Mantenimiento preventivo de PC"
+                required
+            ></textarea>
+
+
+            <label>
+                Cantidad
+            </label>
+
+            <input
+                type="number"
+                name="cantidad"
+                value="1"
+                min="1"
+                required
+                oninput="calcularTotal()"
+            >
+
+
+            <label>
+                Precio unitario (S/)
+            </label>
+
+            <input
+                type="number"
+                name="precio_unitario"
+                value="0"
+                min="0"
+                step="0.01"
+                required
+                oninput="calcularTotal()"
+            >
+
+
+            <div class="total">
+
+                Total:
+                S/
+
+                <span id="total">
+                    0.00
+                </span>
+
+            </div>
+
+
+            <label>
+                Estado
+            </label>
+
+            <select name="estado">
+
+                <option value="Pendiente">
+                    Pendiente
+                </option>
+
+                <option value="Aceptada">
+                    Aceptada
+                </option>
+
+                <option value="Rechazada">
+                    Rechazada
+                </option>
+
+            </select>
+
+
+            <label>
+                Observaciones
+            </label>
+
+            <textarea
+                name="observaciones"
+                placeholder="Condiciones, tiempo de entrega, garantía, etc."
+            ></textarea>
+
+
+            <div class="botones">
+
+                <button
+                    type="submit"
+                    class="boton guardar"
+                >
+                    💾 Guardar cotización
+                </button>
+
+                <a
+                    href="{{ url_for(
+                        'cliente_detalle',
+                        cliente_id=cliente.id
+                    ) }}"
+                    class="boton cancelar"
+                >
+                    Cancelar
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function calcularTotal() {
+
+    const cantidad =
+        parseFloat(
+            document.querySelector(
+                'input[name="cantidad"]'
+            ).value
+        ) || 0;
+
+    const precio =
+        parseFloat(
+            document.querySelector(
+                'input[name="precio_unitario"]'
+            ).value
+        ) || 0;
+
+    const total =
+        cantidad * precio;
+
+    document.getElementById(
+        "total"
+    ).textContent =
+        total.toFixed(2);
+}
+
+calcularTotal();
+
+</script>
+
+</body>
+
+</html>

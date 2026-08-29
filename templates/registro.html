@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Registro | JPC TECH Center</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        .contenedor {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        .logo {
+            display: block;
+            width: 130px;
+            margin: 0 auto 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #07152f;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 16px;
+            background: #1261d6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .aviso {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #777;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <img
+        src="{{ url_for('static', filename='img/logo.png') }}"
+        alt="JPC TECH Center"
+        class="logo"
+    >
+
+    <h1>Regístrate en JPC TECH Connect</h1>
+
+    <p>
+        Completa tus datos para acceder a nuestros
+        beneficios tecnológicos.
+    </p>
+
+    <form method="POST">
+
+        <label for="nombre">
+            Nombre
+        </label>
+
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+        >
+
+
+        <label for="whatsapp">
+            WhatsApp
+        </label>
+
+        <input
+            type="tel"
+            id="whatsapp"
+            name="whatsapp"
+            placeholder="Ejemplo: 999999999"
+            required
+        >
+
+
+        <label for="correo">
+            Correo electrónico
+        </label>
+
+        <input
+            type="email"
+            id="correo"
+            name="correo"
+        >
+
+
+        <label for="equipo">
+            ¿Qué equipo tienes?
+        </label>
+
+        <select id="equipo" name="equipo">
+
+            <option value="">
+                Selecciona una opción
+            </option>
+
+            <option value="Laptop">
+                Laptop
+            </option>
+
+            <option value="PC">
+                PC de escritorio
+            </option>
+
+            <option value="Impresora">
+                Impresora
+            </option>
+
+            <option value="POS">
+                Sistema POS
+            </option>
+
+            <option value="Otro">
+                Otro
+            </option>
+
+        </select>
+
+
+        <label for="necesidad">
+            ¿En qué podemos ayudarte?
+        </label>
+
+        <textarea
+            id="necesidad"
+            name="necesidad"
+            placeholder="Cuéntanos brevemente qué necesitas..."
+        ></textarea>
+
+
+        <button type="submit">
+            <div style="margin-top: 18px;">
+
+    <label for="origen">
+        ¿Cómo conociste JPC TECH Center?
+    </label>
+
+    <select
+        id="origen"
+        name="origen"
+        required
+        style="
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+        "
+    >
+
+        <option value="">
+            Selecciona una opción
+        </option>
+
+        <option value="QR / Volante">
+            📱 QR / Volante
+        </option>
+
+        <option value="Facebook">
+            📘 Facebook
+        </option>
+
+        <option value="Instagram">
+            📸 Instagram
+        </option>
+
+        <option value="TikTok">
+            🎵 TikTok
+        </option>
+
+        <option value="WhatsApp">
+            💬 WhatsApp
+        </option>
+
+        <option value="Recomendación">
+            👥 Recomendación
+        </option>
+
+        <option value="Visita al local">
+            🏪 Visita al local
+        </option>
+
+        <option value="Otro">
+            🌐 Otro
+        </option>
+
+    </select>
+
+</div>
+            REGISTRARME GRATIS
+        </button>
+
+    </form>
+
+
+    <p class="aviso">
+        Al registrarte, aceptas que JPC TECH Center
+        utilice estos datos para brindarte información
+        y beneficios relacionados con sus servicios.
+    </p>
+
+</div>
+
+</body>
+
+</html>

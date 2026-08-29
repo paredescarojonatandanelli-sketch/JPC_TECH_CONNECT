@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+
+app_backup/
+templates_backup/
+static_backup/
+
+database/*.db
+.env
+app/*backup*
+templates/*backup*

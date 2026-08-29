@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>JPC TECH Center | JPC TECH Connect</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+        .contenedor {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            min-height: 100vh;
+            background: white;
+        }
+
+        .encabezado {
+            background: #07152f;
+            padding: 25px 20px 30px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 150px;
+            max-width: 60%;
+            margin-bottom: 15px;
+        }
+
+        .marca {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .slogan {
+            color: #2f80ed;
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .contenido {
+            padding: 30px 22px;
+            text-align: center;
+        }
+
+        .bienvenida {
+            font-size: 27px;
+            color: #07152f;
+            margin-bottom: 12px;
+        }
+
+        .descripcion {
+            font-size: 17px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .beneficios {
+            text-align: left;
+            margin: 20px 0 30px;
+        }
+
+        .beneficio {
+            background: #f1f6fc;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .boton {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border-radius: 10px;
+            background: #1261d6;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .boton:hover {
+            background: #084ba9;
+        }
+
+        .nota {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .pie {
+            background: #07152f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <header class="encabezado">
+
+        <img
+            src="{{ url_for('static', filename='img/logo.png') }}"
+            alt="JPC TECH Center"
+            class="logo"
+        >
+
+        <div class="marca">
+            JPC TECH CENTER
+        </div>
+
+        <div class="slogan">
+            Tecnología que impulsa tu futuro
+        </div>
+
+    </header>
+
+
+    <main class="contenido">
+
+        <h1 class="bienvenida">
+            ¡Bienvenido a JPC TECH Connect!
+        </h1>
+
+        <p class="descripcion">
+            Regístrate gratuitamente y comienza a recibir
+            orientación y beneficios tecnológicos de
+            JPC TECH Center.
+        </p>
+
+
+        <section class="beneficios">
+
+            <div class="beneficio">
+                ✅ Asesoría tecnológica
+            </div>
+
+            <div class="beneficio">
+                ✅ Orientación para el cuidado de tu PC
+            </div>
+
+            <div class="beneficio">
+                ✅ Consejos para mejorar tu equipo
+            </div>
+
+            <div class="beneficio">
+                ✅ Promociones y beneficios especiales
+            </div>
+
+            <div class="beneficio">
+                ✅ Orientación antes de comprar tecnología
+            </div>
+
+        </section>
+
+
+       
+       <a href="{{ url_for('registro') }}" class="boton">
+    REGISTRARME GRATIS
+       </a>
+
+        <p class="nota">
+            Tu información será utilizada únicamente
+            para brindarte nuestros servicios y beneficios.
+        </p>
+
+    </main>
+
+
+    <footer class="pie">
+
+        JPC TECH Center
+
+        <br>
+
+        Centro de Soluciones Tecnológicas
+
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Perfil - JPC TECH Connect</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .contenedor {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .tarjeta {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+        }
+
+        .cabecera {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin-bottom: 8px;
+        }
+
+        .saludo {
+            color: #555;
+        }
+
+        .dato {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f5f7fa;
+            border-radius: 10px;
+        }
+
+        .etiqueta {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .valor {
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .boton-secundario {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-left: 8px;
+        }
+
+        .pie {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #777;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="tarjeta">
+
+        <div class="cabecera">
+
+            <h1>👤 Mi Perfil</h1>
+
+            <p class="saludo">
+                Información de tu registro en JPC TECH Connect.
+            </p>
+
+        </div>
+
+        <div class="dato">
+
+            <div class="etiqueta">
+                Nombre
+            </div>
+
+            <div class="valor">
+                {{ cliente.nombre }}
+            </div>
+
+        </div>
+
+        <div class="dato">
+
+            <div class="etiqueta">
+                WhatsApp
+            </div>
+
+            <div class="valor">
+                {{ cliente.whatsapp }}
+            </div>
+
+        </div>
+
+        <div class="dato">
+
+            <div class="etiqueta">
+                Correo electrónico
+            </div>
+
+            <div class="valor">
+                {{ cliente.correo or "No registrado" }}
+            </div>
+
+        </div>
+
+        <div class="dato">
+
+            <div class="etiqueta">
+                Equipo
+            </div>
+
+            <div class="valor">
+                {{ cliente.equipo or "No registrado" }}
+            </div>
+
+        </div>
+
+        <div class="dato">
+
+            <div class="etiqueta">
+                Necesidad
+            </div>
+
+            <div class="valor">
+                {{ cliente.necesidad or "No registrada" }}
+            </div>
+
+        </div>
+
+        <div class="dato">
+
+            <div class="etiqueta">
+                Origen del registro
+            </div>
+
+            <div class="valor">
+                {{ cliente.origen or "No registrado" }}
+            </div>
+
+        </div>
+<h2 style="margin-top: 35px;">
+    📋 Mi Historial
+</h2>
+
+{% if historial %}
+
+    {% for registro in historial %}
+
+        <div class="dato">
+
+            <div class="etiqueta">
+                {{ registro.fecha.strftime('%d/%m/%Y %H:%M') if registro.fecha else '' }}
+            </div>
+
+            <div class="valor">
+                {{ registro.tipo }}
+            </div>
+
+            <div style="margin-top: 8px;">
+                {{ registro.descripcion }}
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <div class="dato">
+
+        <div class="valor">
+            📋 Aún no tienes historial registrado.
+        </div>
+
+        <div style="margin-top: 8px;">
+            Cuando realices un servicio con JPC TECH,
+            aquí podrás consultar tu historial.
+        </div>
+
+    </div>
+
+{% endif %}
+        <div style="text-align:center;">
+
+            <a href="/beneficios" class="boton">
+    🎁 Mis Beneficios
+</a>
+
+<a
+    href="{{ url_for('solicitar_asesoria', cliente_id=cliente.id) }}"
+    class="boton"
+>
+    📲 Solicitar Asesoría
+</a>
+
+<a href="/" class="boton-secundario">
+    🏠 Inicio
+</a>
+
+        </div>
+
+        <div class="pie">
+
+            JPC TECH Center<br>
+            Centro de Soluciones Tecnológicas
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

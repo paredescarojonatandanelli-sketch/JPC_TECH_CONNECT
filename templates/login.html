@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Administración | JPC TECH Center</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        .contenedor {
+            max-width: 450px;
+            min-height: 100vh;
+            margin: auto;
+            background: white;
+            padding: 40px 25px;
+        }
+
+        .logo {
+            display: block;
+            width: 150px;
+            margin: 0 auto 25px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #07152f;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #1261d6;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .error {
+            background: #ffe8e8;
+            color: #a00000;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <img
+        src="{{ url_for('static', filename='img/logo.png') }}"
+        alt="JPC TECH Center"
+        class="logo"
+    >
+
+    <h1>
+        Panel Administrativo
+    </h1>
+
+    <p class="subtitulo">
+        JPC TECH Connect
+    </p>
+
+
+    {% if error %}
+
+        <div class="error">
+            {{ error }}
+        </div>
+
+    {% endif %}
+
+
+    <form method="POST">
+
+        <label for="usuario">
+            Usuario
+        </label>
+
+        <input
+            type="text"
+            id="usuario"
+            name="usuario"
+            required
+        >
+
+
+        <label for="password">
+            Contraseña
+        </label>
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+            required
+        >
+
+
+        <button type="submit">
+            INGRESAR
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

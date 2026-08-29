@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JPC TECH Center - Atención</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .contenedor {
+            max-width: 500px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0d6efd;
+            margin-bottom: 5px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #0d6efd;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0b5ed7;
+        }
+
+        .aviso {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>JPC TECH Center</h1>
+
+    <div class="subtitulo">
+        Soluciones tecnológicas
+    </div>
+
+    <h2>Solicita nuestra atención</h2>
+
+    <p>
+        Déjanos tus datos y cuéntanos qué necesitas.
+        Nuestro equipo podrá revisar tu solicitud.
+    </p>
+
+    <form method="POST">
+
+        <label for="nombre">
+            Nombre *
+        </label>
+
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Tu nombre"
+            required
+        >
+
+        <label for="whatsapp">
+            WhatsApp *
+        </label>
+
+        <input
+            type="tel"
+            id="whatsapp"
+            name="whatsapp"
+            placeholder="Ejemplo: 987654321"
+            required
+        >
+
+        <label for="correo">
+            Correo electrónico
+        </label>
+
+        <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="correo@ejemplo.com"
+        >
+
+        <label for="equipo">
+            Equipo o servicio
+        </label>
+
+        <input
+            type="text"
+            id="equipo"
+            name="equipo"
+            placeholder="Ejemplo: Laptop HP, impresora Epson, cámaras..."
+        >
+
+        <label for="necesidad">
+            ¿Qué necesitas? *
+        </label>
+
+        <textarea
+            id="necesidad"
+            name="necesidad"
+            placeholder="Cuéntanos brevemente qué necesitas..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            📲 Enviar solicitud
+        </button>
+
+    </form>
+
+    <div class="aviso">
+        JPC TECH Center · Lima - Perú
+    </div>
+
+</div>
+
+</body>
+</html>
