@@ -27,12 +27,17 @@ app.secret_key = os.environ.get(
 
 database_url = os.environ.get("DATABASE_URL")
 
-if database_url:
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_url.replace(
-        "postgresql://",
-        "postgresql+psycopg://",
-        1
-    )
+database_url = database_url.replace(
+    "postgres://",
+    "postgresql+psycopg://",
+    1
+).replace(
+    "postgresql://",
+    "postgresql+psycopg://",
+    1
+)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = (
         "sqlite:///" + DATABASE_FILE.replace("\\", "/")
