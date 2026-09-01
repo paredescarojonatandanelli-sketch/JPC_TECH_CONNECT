@@ -25,9 +25,10 @@ app.secret_key = os.environ.get(
     "JPC-TECH-CLAVE-LOCAL-2026"
 )
 
-database_url = os.environ.get("DATABASE_URL")
-
-database_url = database_url.replace(
+app.config["SQLALCHEMY_DATABASE_URI"] = (
+    os.environ.get("DATABASE_URL")
+    or "sqlite:///" + DATABASE_FILE.replace("\\", "/")
+).replace(
     "postgres://",
     "postgresql+psycopg://",
     1
@@ -37,18 +38,9 @@ database_url = database_url.replace(
     1
 )
 
-app.config["SQLALCHEMY_DATABASE_URI"] = database_url
-else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = (
-        "sqlite:///" + DATABASE_FILE.replace("\\", "/")
-    )
-
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-
 db = SQLAlchemy(app)
-
-
 
 class Cliente(db.Model):
 
