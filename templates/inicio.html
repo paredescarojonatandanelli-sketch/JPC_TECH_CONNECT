@@ -2,210 +2,566 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>JPC TECH Center | JPC TECH Connect</title>
+    <title>JPC Tech Center | Soluciones Tecnológicas</title>
 
     <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
         }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f7fb;
-            color: #172033;
+        body{
+            font-family:Arial,Helvetica,sans-serif;
+            background:#020711;
+            color:white;
         }
 
-        .contenedor {
-            width: 100%;
-            max-width: 600px;
-            margin: auto;
-            min-height: 100vh;
-            background: white;
+        a{
+            text-decoration:none;
+            color:inherit;
         }
 
-        .encabezado {
-            background: #07152f;
-            padding: 25px 20px 30px;
-            text-align: center;
+        .topbar{
+            width:100%;
+            min-height:80px;
+            padding:15px 6%;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:20px;
+            background:rgba(2,7,17,.95);
+            border-bottom:1px solid #0a72b8;
+            position:sticky;
+            top:0;
+            z-index:100;
         }
 
-        .logo {
-            width: 150px;
-            max-width: 60%;
-            margin-bottom: 15px;
+        .logo-area{
+            display:flex;
+            align-items:center;
+            gap:12px;
         }
 
-        .marca {
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
+        .logo-area img{
+            width:70px;
+            height:70px;
+            object-fit:contain;
         }
 
-        .slogan {
-            color: #2f80ed;
-            font-size: 17px;
-            font-weight: bold;
-            margin-top: 8px;
+        .brand-name{
+            font-size:22px;
+            font-weight:bold;
         }
 
-        .contenido {
-            padding: 30px 22px;
-            text-align: center;
+        .brand-name span{
+            color:#1aa8ff;
         }
 
-        .bienvenida {
-            font-size: 27px;
-            color: #07152f;
-            margin-bottom: 12px;
+        .whatsapp-top{
+            background:#12c85a;
+            padding:12px 20px;
+            border-radius:30px;
+            font-weight:bold;
         }
 
-        .descripcion {
-            font-size: 17px;
-            line-height: 1.5;
-            color: #555;
-            margin-bottom: 25px;
+        .hero{
+            min-height:480px;
+            padding:70px 7% 50px;
+            text-align:center;
+            background:
+                radial-gradient(circle at center top,#073d70 0%,#041522 40%,#020711 75%);
         }
 
-        .beneficios {
-            text-align: left;
-            margin: 20px 0 30px;
+        .small-title{
+            color:#47bfff;
+            letter-spacing:5px;
+            font-weight:bold;
+            margin-bottom:18px;
         }
 
-        .beneficio {
-            background: #f1f6fc;
-            border-radius: 10px;
-            padding: 14px;
-            margin-bottom: 10px;
-            font-size: 16px;
+        .hero h1{
+            font-size:64px;
+            margin-bottom:12px;
         }
 
-        .boton {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            border-radius: 10px;
-            background: #1261d6;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
+        .hero h1 span{
+            color:#1ba8ff;
         }
 
-        .boton:hover {
-            background: #084ba9;
+        .hero h2{
+            font-size:26px;
+            font-weight:normal;
+            margin-bottom:25px;
         }
 
-        .nota {
-            margin-top: 18px;
-            font-size: 13px;
-            color: #777;
+        .hero p{
+            color:#bdcfdd;
+            max-width:760px;
+            margin:auto;
+            font-size:18px;
+            line-height:1.7;
         }
 
-        .pie {
-            background: #07152f;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
+        .benefits{
+            margin:45px auto 0;
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:15px;
         }
 
+        .benefit{
+            background:rgba(10,35,58,.85);
+            border:1px solid #135a89;
+            padding:13px 20px;
+            border-radius:30px;
+        }
+
+        .services{
+            max-width:1250px;
+            margin:-45px auto 0;
+            padding:0 22px 80px;
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:22px;
+        }
+
+        .service-card{
+            min-height:450px;
+            border-radius:24px;
+            padding:34px;
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-end;
+            overflow:hidden;
+            border:1px solid #126da8;
+            box-shadow:0 18px 50px rgba(0,0,0,.35);
+        }
+
+        .support{
+            background:
+                linear-gradient(rgba(3,18,31,.35),rgba(3,18,31,.96)),
+                #092844;
+        }
+
+        .assistant{
+            background:
+                radial-gradient(circle at top,#125ea6,#061626 60%);
+        }
+
+        .security{
+            background:
+                linear-gradient(rgba(1,28,35,.30),rgba(1,20,30,.96)),
+                #063244;
+        }
+
+        .service-card .icon{
+            font-size:54px;
+            margin-bottom:20px;
+        }
+
+        .service-card h3{
+            font-size:30px;
+            margin-bottom:15px;
+        }
+
+        .service-card h3 span{
+            color:#25b4ff;
+        }
+
+        .service-card p{
+            color:#cad6df;
+            line-height:1.6;
+            margin-bottom:22px;
+        }
+
+        .features{
+            margin-bottom:25px;
+            line-height:1.8;
+            color:#e7f0f7;
+        }
+
+        .btn{
+            display:block;
+            width:100%;
+            padding:16px;
+            border-radius:12px;
+            text-align:center;
+            font-weight:bold;
+            background:#129df2;
+            box-shadow:0 5px 20px rgba(18,157,242,.25);
+        }
+
+        .btn-green{
+            background:#14c65b;
+        }
+
+        .assistant-box{
+            background:white;
+            color:#536170;
+            border-radius:14px;
+            padding:15px;
+            margin-bottom:18px;
+        }
+
+        .section{
+            max-width:1180px;
+            margin:auto;
+            padding:70px 22px;
+        }
+
+        .section h2{
+            text-align:center;
+            font-size:38px;
+            margin-bottom:40px;
+        }
+
+        .section h2 span{
+            color:#20adff;
+        }
+
+        .steps{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:20px;
+        }
+
+        .step{
+            background:#081625;
+            border:1px solid #143b5c;
+            padding:28px 20px;
+            border-radius:17px;
+            text-align:center;
+        }
+
+        .step strong{
+            display:block;
+            color:#2db8ff;
+            margin-bottom:10px;
+            font-size:19px;
+        }
+
+        .final{
+            text-align:center;
+            padding:80px 20px;
+            background:#07121e;
+        }
+
+        .final h2{
+            font-size:40px;
+            margin-bottom:15px;
+        }
+
+        .final p{
+            color:#b9c8d4;
+            margin-bottom:28px;
+        }
+
+        .phone{
+            font-size:32px;
+            font-weight:bold;
+            margin-bottom:25px;
+        }
+
+        footer{
+            text-align:center;
+            padding:30px;
+            color:#8294a3;
+            background:#010307;
+        }
+
+        @media(max-width:900px){
+            .services{
+                grid-template-columns:1fr;
+                margin-top:-20px;
+            }
+
+            .steps{
+                grid-template-columns:1fr 1fr;
+            }
+
+            .hero h1{
+                font-size:43px;
+            }
+        }
+
+        @media(max-width:550px){
+            .topbar{
+                padding:10px 15px;
+            }
+
+            .brand-name{
+                font-size:16px;
+            }
+
+            .logo-area img{
+                width:52px;
+                height:52px;
+            }
+
+            .whatsapp-top{
+                font-size:13px;
+                padding:10px 13px;
+            }
+
+            .hero{
+                padding:55px 18px 60px;
+            }
+
+            .hero h1{
+                font-size:36px;
+            }
+
+            .hero h2{
+                font-size:20px;
+            }
+
+            .services{
+                padding-left:14px;
+                padding-right:14px;
+            }
+
+            .service-card{
+                min-height:400px;
+                padding:27px;
+            }
+
+            .steps{
+                grid-template-columns:1fr;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<div class="contenedor">
+<header class="topbar">
 
-    <header class="encabezado">
+    <div class="logo-area">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="JPC">
 
-        <img
-            src="{{ url_for('static', filename='img/logo.png') }}"
-            alt="JPC TECH Center"
-            class="logo"
+        <div class="brand-name">
+            JPC <span>TECH CENTER</span>
+        </div>
+    </div>
+
+    <a
+        class="whatsapp-top"
+        target="_blank"
+        href="https://wa.me/51902381157?text=Hola%20JPC%20Tech%20Center.%20Necesito%20asesoría."
+    >
+        WhatsApp 902 381 157
+    </a>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="small-title">
+        BIENVENIDO A
+    </div>
+
+    <h1>
+        JPC <span>TECH CENTER</span>
+    </h1>
+
+    <h2>
+        Todo en tecnología, en un solo lugar.
+    </h2>
+
+    <p>
+        Cuéntanos qué necesitas resolver.
+        Te orientamos para encontrar una solución adecuada
+        antes de reparar, comprar o instalar.
+    </p>
+
+    <div class="benefits">
+        <div class="benefit">✓ Diagnóstico honesto</div>
+        <div class="benefit">✓ Asesoría personalizada</div>
+        <div class="benefit">✓ Cobro justo</div>
+        <div class="benefit">✓ Soporte JPC</div>
+    </div>
+
+</section>
+
+
+<main class="services">
+
+    <!-- SOPORTE -->
+
+    <article class="service-card support">
+
+        <div class="icon">💻</div>
+
+        <h3>
+            SOPORTE TÉCNICO
+            <span>AVANZADO</span>
+        </h3>
+
+        <p>
+            Diagnóstico y soluciones para tus equipos
+            de trabajo, estudio o negocio.
+        </p>
+
+        <div class="features">
+            ✓ Laptops y PC<br>
+            ✓ Impresoras<br>
+            ✓ Reparaciones<br>
+            ✓ Mantenimiento<br>
+            ✓ Software y optimización
+        </div>
+
+        <a class="btn" href="/soporte">
+            DIAGNOSTICAR MI PROBLEMA →
+        </a>
+
+    </article>
+
+
+    <!-- ASISTENTE -->
+
+    <article class="service-card assistant">
+
+        <div class="icon">🤖</div>
+
+        <h3>
+            ASISTENTE
+            <span>JPC</span>
+        </h3>
+
+        <p>
+            No necesitas saber qué servicio pedir.
+            Describe tu problema y te ayudamos
+            a identificar el siguiente paso.
+        </p>
+
+        <div class="assistant-box">
+            Ejemplo: “Mi laptop está muy lenta”
+        </div>
+
+        <div class="features">
+            ⚡ Orientación rápida<br>
+            🎯 Te dirige al servicio adecuado<br>
+            📋 Facilita tu solicitud
+        </div>
+
+        <a
+            class="btn"
+            target="_blank"
+            href="https://wa.me/51902381157?text=Hola%20JPC.%20Necesito%20ayuda%20pero%20no%20sé%20qué%20servicio%20necesito."
         >
+            CUÉNTAME QUÉ NECESITAS →
+        </a>
 
-        <div class="marca">
-            JPC TECH CENTER
-        </div>
-
-        <div class="slogan">
-            Tecnología que impulsa tu futuro
-        </div>
-
-    </header>
+    </article>
 
 
-    <main class="contenido">
+    <!-- SECURITY -->
 
-        <h1 class="bienvenida">
-            ¡Bienvenido a JPC TECH Connect!
-        </h1>
+    <article class="service-card security">
 
-        <p class="descripcion">
-            Regístrate gratuitamente y comienza a recibir
-            orientación y beneficios tecnológicos de
-            JPC TECH Center.
+        <div class="icon">📹</div>
+
+        <h3>
+            JPC
+            <span>SECURITY</span>
+        </h3>
+
+        <p>
+            Seguridad inteligente para proteger
+            tu hogar, tienda, oficina o empresa.
         </p>
 
+        <div class="features">
+            ✓ Cámaras de seguridad<br>
+            ✓ Instalación profesional<br>
+            ✓ Configuración en celular<br>
+            ✓ Mantenimiento<br>
+            ✓ Soporte
+        </div>
 
-        <section class="beneficios">
+        <a class="btn btn-green" href="/security">
+            COTIZAR MI PROYECTO →
+        </a>
 
-            <div class="beneficio">
-                ✅ Asesoría tecnológica
-            </div>
+    </article>
 
-            <div class="beneficio">
-                ✅ Orientación para el cuidado de tu PC
-            </div>
-
-            <div class="beneficio">
-                ✅ Consejos para mejorar tu equipo
-            </div>
-
-            <div class="beneficio">
-                ✅ Promociones y beneficios especiales
-            </div>
-
-            <div class="beneficio">
-                ✅ Orientación antes de comprar tecnología
-            </div>
-
-        </section>
+</main>
 
 
-       
-       <a href="{{ url_for('registro') }}" class="boton">
-    REGISTRARME GRATIS
-       </a>
+<section class="section">
 
-        <p class="nota">
-            Tu información será utilizada únicamente
-            para brindarte nuestros servicios y beneficios.
-        </p>
+    <h2>
+        Así trabajamos en
+        <span>JPC</span>
+    </h2>
 
-    </main>
+    <div class="steps">
+
+        <div class="step">
+            <strong>1. Cuéntanos</strong>
+            Explícanos qué necesitas.
+        </div>
+
+        <div class="step">
+            <strong>2. Evaluamos</strong>
+            Identificamos la mejor alternativa.
+        </div>
+
+        <div class="step">
+            <strong>3. Te asesoramos</strong>
+            Conoces tus opciones antes de decidir.
+        </div>
+
+        <div class="step">
+            <strong>4. Solucionamos</strong>
+            Ejecutamos el servicio autorizado.
+        </div>
+
+    </div>
+
+</section>
 
 
-    <footer class="pie">
+<section class="final">
 
-        JPC TECH Center
+    <h2>
+        Tecnología que te hace la vida más sencilla
+    </h2>
 
-        <br>
+    <p>
+        Soporte, seguridad y asesoría tecnológica
+        desde un mismo lugar.
+    </p>
 
-        Centro de Soluciones Tecnológicas
+    <div class="phone">
+        902 381 157
+    </div>
 
-    </footer>
+    <a
+        class="btn btn-green"
+        style="max-width:320px;margin:auto;"
+        target="_blank"
+        href="https://wa.me/51902381157?text=Hola%20JPC%20Tech%20Center.%20Quiero%20información."
+    >
+        HABLAR CON JPC
+    </a>
 
-</div>
+</section>
+
+
+<footer>
+
+    <strong>JPC TECH CENTER</strong>
+    <br><br>
+
+    Todo en tecnología, en un solo lugar.
+
+</footer>
 
 </body>
 </html>
