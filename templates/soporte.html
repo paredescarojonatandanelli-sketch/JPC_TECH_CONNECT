@@ -270,8 +270,35 @@
                 font-size: 31px;
             }
         }
+.icon{
+    width:58px;
+    height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
+    margin-bottom:24px;
+
+    border-radius:16px;
+
+    background:rgba(20,160,255,.10);
+    border:1px solid rgba(30,170,255,.30);
+
+    box-shadow:
+        0 0 25px rgba(0,150,255,.12);
+}
+
+.icon svg{
+    width:31px;
+    height:31px;
+
+    stroke:#27b4ff;
+    stroke-width:1.8;
+}
     </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -320,7 +347,9 @@
     <div class="cards">
 
         <div class="card">
-            <div class="icon">💻</div>
+            <div class="icon">
+    <i data-lucide="laptop"></i>
+</div>
 
             <h3>
                 Laptops y PC
@@ -343,7 +372,9 @@
 
 
         <div class="card">
-            <div class="icon">🖨️</div>
+            <div class="icon">
+    <i data-lucide="printer"></i>
+</div>
 
             <h3>
                 Impresoras
@@ -366,7 +397,9 @@
 
 
         <div class="card">
-            <div class="icon">🔧</div>
+            <div class="icon">
+    <i data-lucide="cpu"></i>
+</div>
 
             <h3>
                 Reparación de placa
@@ -389,7 +422,9 @@
 
 
         <div class="card">
-            <div class="icon">🛡️</div>
+            <div class="icon">
+    <i data-lucide="settings"></i>
+</div>
 
             <h3>
                 Mantenimiento preventivo
@@ -411,8 +446,13 @@
         </div>
 
 
+        <!-- INSTALACIÓN DE SOFTWARE -->
+
         <div class="card">
-            <div class="icon">⚙️</div>
+
+            <div class="icon">
+                <i data-lucide="package-plus"></i>
+            </div>
 
             <h3>
                 Instalación de software
@@ -431,11 +471,17 @@
             >
                 Consultar software
             </a>
+
         </div>
 
 
+        <!-- RECUPERACIÓN DE DATOS -->
+
         <div class="card">
-            <div class="icon">💾</div>
+
+            <div class="icon">
+                <i data-lucide="database-backup"></i>
+            </div>
 
             <h3>
                 Recuperación de datos
@@ -454,11 +500,17 @@
             >
                 Solicitar evaluación
             </a>
+
         </div>
 
 
+        <!-- ACTUALIZACIÓN DE HARDWARE -->
+
         <div class="card">
-            <div class="icon">🚀</div>
+
+            <div class="icon">
+                <i data-lucide="memory-stick"></i>
+            </div>
 
             <h3>
                 Actualización de hardware
@@ -477,11 +529,17 @@
             >
                 Quiero mejorar mi equipo
             </a>
+
         </div>
 
 
+        <!-- REDES Y CONECTIVIDAD -->
+
         <div class="card">
-            <div class="icon">🌐</div>
+
+            <div class="icon">
+                <i data-lucide="network"></i>
+            </div>
 
             <h3>
                 Redes y conectividad
@@ -500,11 +558,17 @@
             >
                 Consultar
             </a>
+
         </div>
 
 
+        <!-- SOPORTE REMOTO -->
+
         <div class="card">
-            <div class="icon">🎧</div>
+
+            <div class="icon">
+                <i data-lucide="headphones"></i>
+            </div>
 
             <h3>
                 Soporte remoto
@@ -523,11 +587,17 @@
             >
                 Solicitar soporte remoto
             </a>
+
         </div>
 
 
+        <!-- SERVICIO A DOMICILIO -->
+
         <div class="card">
-            <div class="icon">🏠</div>
+
+            <div class="icon">
+                <i data-lucide="house"></i>
+            </div>
 
             <h3>
                 Servicio a domicilio
@@ -546,14 +616,12 @@
             >
                 Consultar disponibilidad
             </a>
+
         </div>
 
     </div>
 
 </section>
-
-
-<section class="ideal">
 
     <h2 class="section-title">
         Trabajamos con
@@ -715,6 +783,9 @@
 >
     ☎
 </a>
+<script>
+    lucide.createIcons();
+</script>
 
 </body>
 </html>
