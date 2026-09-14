@@ -843,6 +843,13 @@ def registro_atencion():
 
     return render_template("registro_atencion.html")
 
+@app.route("/security")
+def security():
+    return render_template("security.html")
+
+@app.route("/soporte")
+def soporte():
+    return render_template("soporte.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

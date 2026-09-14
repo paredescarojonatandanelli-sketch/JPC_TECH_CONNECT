@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>JPC Security | Seguridad Inteligente</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #05080d;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background:
+                radial-gradient(circle at top,
+                #043b70 0%,
+                #071424 40%,
+                #05080d 75%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .brand {
+            font-size: 20px;
+            letter-spacing: 3px;
+            color: #3bb8ff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 58px;
+            margin-bottom: 10px;
+        }
+
+        h1 span {
+            color: #159cff;
+        }
+
+        .subtitle {
+            font-size: 25px;
+            color: #d9e9f5;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            max-width: 700px;
+            margin: auto;
+            color: #b8c7d5;
+            font-size: 18px;
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 35px;
+
+            background: #16c657;
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            padding: 18px 32px;
+            border-radius: 12px;
+
+            font-size: 19px;
+
+            box-shadow: 0 8px 25px rgba(22,198,87,.25);
+        }
+
+        .cta:hover {
+            background: #10ab4a;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #159cff;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px,1fr));
+
+            gap: 22px;
+        }
+
+        .card {
+            background: #0e1723;
+            border: 1px solid #173653;
+            border-radius: 18px;
+
+            padding: 30px 22px;
+
+            transition: .25s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #159cff;
+        }
+
+        .icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #42baff;
+        }
+
+        .card p {
+            color: #bdc9d3;
+        }
+
+        .ideal {
+            background: #09111c;
+        }
+
+        .ideal-items {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(160px,1fr));
+
+            gap: 15px;
+            text-align: center;
+        }
+
+        .ideal-box {
+            background: #101d2b;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .why {
+            background:
+                linear-gradient(
+                    135deg,
+                    #062b50,
+                    #07101a
+                );
+
+            border-radius: 25px;
+
+            padding: 45px 30px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit,minmax(190px,1fr));
+
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .why-item strong {
+            display: block;
+            color: #43bbff;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .final-cta {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .final-cta h2 {
+            font-size: 39px;
+            margin-bottom: 15px;
+        }
+
+        .phone {
+            margin-top: 18px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #020407;
+            text-align: center;
+            padding: 30px 20px;
+            color: #82909c;
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            background: #15c95b;
+            color: white;
+
+            width: 62px;
+            height: 62px;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+
+            font-size: 30px;
+
+            box-shadow:
+                0 6px 25px rgba(0,0,0,.4);
+
+            z-index: 1000;
+        }
+
+        @media(max-width:600px) {
+
+            h1 {
+                font-size: 39px;
+            }
+
+            .subtitle {
+                font-size: 21px;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+
+            .final-cta h2 {
+                font-size: 31px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="brand">
+            JPC TECH CENTER
+        </div>
+
+        <h1>
+            JPC <span>SOPORTE TÉCNICO AVANZADO</span>
+        </h1>
+
+        <div class="subtitle">
+            Soluciones reales para tu día a día
+        </div>
+
+        <p class="description">
+            Diagnosticamos, reparamos y optimizamos
+            laptops, PC, impresoras y sistemas informáticos.
+            Te asesoramos antes de reparar o comprar.
+        </p>
+
+        <a
+            class="cta"
+            target="_blank"
+            href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Necesito%20asesoría%20para%20mi%20equipo."
+        >
+            💬 Solicitar diagnóstico
+        </a>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <h2 class="section-title">
+        ¿Qué <span>necesitas resolver?</span>
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">💻</div>
+
+            <h3>
+                Laptops y PC
+            </h3>
+
+            <p>
+                Diagnóstico, reparación, lentitud,
+                fallas de encendido, temperatura,
+                actualización y optimización.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Necesito%20ayuda%20con%20una%20laptop%20o%20PC."
+            >
+                Consultar
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🖨️</div>
+
+            <h3>
+                Impresoras
+            </h3>
+
+            <p>
+                Soporte para Epson, Canon y HP.
+                Mantenimiento, problemas de impresión,
+                configuración y diagnóstico.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Necesito%20ayuda%20con%20una%20impresora."
+            >
+                Consultar
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🔧</div>
+
+            <h3>
+                Reparación de placa
+            </h3>
+
+            <p>
+                Evaluación técnica de fallas
+                electrónicas antes de recomendar
+                reemplazos innecesarios.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Necesito%20evaluar%20una%20posible%20reparación%20de%20placa."
+            >
+                Solicitar evaluación
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🛡️</div>
+
+            <h3>
+                Mantenimiento preventivo
+            </h3>
+
+            <p>
+                Limpieza, revisión, prevención
+                de sobrecalentamiento y optimización
+                del rendimiento del equipo.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Quiero%20hacer%20mantenimiento%20preventivo%20a%20mi%20equipo."
+            >
+                Cotizar mantenimiento
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">⚙️</div>
+
+            <h3>
+                Instalación de software
+            </h3>
+
+            <p>
+                Instalación y configuración
+                de programas de acuerdo con
+                tus necesidades de trabajo.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Necesito%20instalar%20o%20configurar%20software."
+            >
+                Consultar software
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">💾</div>
+
+            <h3>
+                Recuperación de datos
+            </h3>
+
+            <p>
+                Evaluamos discos y unidades
+                con información importante
+                para determinar opciones de recuperación.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Necesito%20evaluar%20una%20recuperación%20de%20datos."
+            >
+                Solicitar evaluación
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🚀</div>
+
+            <h3>
+                Actualización de hardware
+            </h3>
+
+            <p>
+                RAM, SSD, almacenamiento,
+                componentes y mejoras
+                para extender la vida útil del equipo.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Quiero%20mejorar%20o%20actualizar%20mi%20equipo."
+            >
+                Quiero mejorar mi equipo
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🌐</div>
+
+            <h3>
+                Redes y conectividad
+            </h3>
+
+            <p>
+                Configuración básica de red,
+                conexión de equipos, impresoras
+                y solución de problemas de conectividad.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Necesito%20ayuda%20con%20redes%20o%20conectividad."
+            >
+                Consultar
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🎧</div>
+
+            <h3>
+                Soporte remoto
+            </h3>
+
+            <p>
+                Para problemas que puedan
+                solucionarse sin trasladar
+                físicamente el equipo.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Quiero%20saber%20si%20mi%20problema%20se%20puede%20resolver%20de%20forma%20remota."
+            >
+                Solicitar soporte remoto
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🏠</div>
+
+            <h3>
+                Servicio a domicilio
+            </h3>
+
+            <p>
+                Atención para determinados
+                diagnósticos, mantenimiento
+                y configuraciones en Lima.
+            </p>
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Quisiera%20consultar%20por%20servicio%20a%20domicilio."
+            >
+                Consultar disponibilidad
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="ideal">
+
+    <h2 class="section-title">
+        Trabajamos con
+        <span>personas y negocios</span>
+    </h2>
+
+    <div class="ideal-items">
+
+        <div class="ideal-box">
+            👤<br>
+            Usuarios
+        </div>
+
+        <div class="ideal-box">
+            🏪<br>
+            Tiendas
+        </div>
+
+        <div class="ideal-box">
+            🏢<br>
+            Oficinas
+        </div>
+
+        <div class="ideal-box">
+            🏫<br>
+            Colegios
+        </div>
+
+        <div class="ideal-box">
+            🏭<br>
+            Empresas
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <div class="why">
+
+        <h2 class="section-title">
+            Nuestra forma de
+            <span>trabajar</span>
+        </h2>
+
+        <div class="why-grid">
+
+            <div class="why-item">
+                <strong>1. Diagnóstico</strong>
+                Primero identificamos el problema.
+            </div>
+
+            <div class="why-item">
+                <strong>2. Explicación</strong>
+                Te informamos qué encontramos.
+            </div>
+
+            <div class="why-item">
+                <strong>3. Opciones</strong>
+                Te orientamos antes de reparar
+                o comprar.
+            </div>
+
+            <div class="why-item">
+                <strong>4. Solución</strong>
+                Ejecutamos el servicio autorizado.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <div class="why">
+
+        <h2 class="section-title">
+            ¿No sabes exactamente
+            <span>qué falla?</span>
+        </h2>
+
+        <p style="
+            max-width:720px;
+            margin:auto;
+            text-align:center;
+            color:#c5d1dc;
+            font-size:18px;
+        ">
+            Escríbenos qué está haciendo tu equipo,
+            desde cuándo ocurre y qué tipo de equipo tienes.
+            Te orientaremos sobre el siguiente paso.
+        </p>
+
+        <div style="text-align:center;">
+
+            <a
+                class="cta"
+                target="_blank"
+                href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20No%20sé%20exactamente%20qué%20falla%20tiene%20mi%20equipo.%20Quiero%20asesoría."
+            >
+                💬 Necesito asesoría
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="final-cta">
+
+    <h2>
+        Tu tecnología en buenas manos
+    </h2>
+
+    <p>
+        Cuéntanos qué problema tienes
+        y te ayudaremos a evaluar la mejor solución.
+    </p>
+
+    <div class="phone">
+        WhatsApp: 902 381 157
+    </div>
+
+    <a
+        class="cta"
+        target="_blank"
+        href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte%20Técnico%20Avanzado.%20Quiero%20una%20asesoría."
+    >
+        💬 Hablar con JPC
+    </a>
+
+</section>
+
+
+<footer>
+
+    <strong>JPC TECH CENTER</strong>
+    <br>
+
+    Todo en tecnología, en un solo lugar.
+    <br><br>
+
+    JPC Soporte Técnico Avanzado
+
+</footer>
+
+
+<a
+    class="floating-whatsapp"
+    target="_blank"
+    href="https://wa.me/51902381157?text=Hola%20JPC%20Soporte.%20Necesito%20ayuda%20con%20mi%20equipo."
+>
+    ☎
+</a>
+
+</body>
+</html>
